@@ -5,9 +5,10 @@ class Encoder(tf.keras.models.Model):
     Simple autoencoder forward layer
     '''
     
-    def __init__(self):
+    def __init__(self, latent_size=10):
         tf.keras.models.Model.__init__(self)
-
+        self._latent_size = 10
+        
         self.encoder_layer_1 = tf.keras.layers.Dense(
             units = 784, 
             activation=tf.nn.relu,
@@ -22,7 +23,7 @@ class Encoder(tf.keras.models.Model):
         )
         
         self.final_encoding_layer = tf.keras.layers.Dense(
-            units = 10,
+            units = self._latent_size,
             activation = None,
         )
         
