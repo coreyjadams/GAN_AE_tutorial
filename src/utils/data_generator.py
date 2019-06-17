@@ -104,7 +104,7 @@ class mnist_generator(object):
         # Data is stored as [B, H, W, C]
 
         images = numpy.zeros([batch_size, self._base_shape[0], n_digits*self._base_shape[1]])
-        labels = numpy.zeros([batch_size])
+        labels = numpy.zeros([batch_size], dtype=numpy.int32)
         
         indexes = numpy.asarray(
             self._random.sample(
