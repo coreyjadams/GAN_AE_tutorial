@@ -7,8 +7,10 @@ class Encoder(tf.keras.models.Model):
     
     def __init__(self, latent_size=10):
         tf.keras.models.Model.__init__(self)
-        self._latent_size = 10
+        self._latent_size = latent_size
         
+
+
         self.encoder_layer_1 = tf.keras.layers.Dense(
             units = 784, 
             activation=tf.nn.relu,

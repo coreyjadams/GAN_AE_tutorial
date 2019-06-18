@@ -8,6 +8,7 @@ class Encoder(tf.keras.models.Model):
     def __init__(self, latent_size = 10):
         tf.keras.models.Model.__init__(self)
         self._latent_size = latent_size
+
         # Apply a 5x5 kernel to the image:
         self.encoder_layer_1 = tf.keras.layers.Convolution2D(
             kernel_size = [5, 5], 
@@ -52,6 +53,7 @@ class Encoder(tf.keras.models.Model):
         x = self.encoder_layer_3(x)
         x = self.encoder_layer_4(x)
         return tf.reshape(x, [batch_size, self._latent_size])
+
         
 
 class Decoder(tf.keras.models.Model):
